@@ -1,5 +1,5 @@
 import express from "express";
-import { addToActiveCampaign,addToActiveCampaign2,getWebinar } from "./controller.js";
+import { addToActiveCampaign,addToActiveCampaign2 } from "./controller.js";
 
 const router = express.Router();
 

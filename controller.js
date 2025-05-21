@@ -17,20 +17,19 @@ const getWebinar = async () => {
     });
     const registrants = response.data.registrants.data;
     // Extract required fields only
-    const cleanRegistrants = registrants.map(user => ({
+    const cleanRegistrants = registrants.map((user) => ({
       first_name: user.first_name,
       last_name: user.last_name,
       phone: user.phone,
-      email: user.email
+      email: user.email,
     }));
-    console.log(cleanRegistrants.length)
-     return cleanRegistrants;
+    console.log(cleanRegistrants.length);
+    return cleanRegistrants;
   } catch (error) {
     console.log("WebinarJam error:", error.response?.data || error.message);
     return [];
   }
 };
-
 
 const addToActiveCampaign = async (req, res) => {
   try {
@@ -45,7 +44,8 @@ const addToActiveCampaign = async (req, res) => {
     // const { email, name } = req.body;
     const AC_API_KEY =
       "d0fcf31b4bc0f1c0f52f1cbf188487a1565dbb1781c9cdaf70e66adeb875a74ad4ab8ae8";
-    const AC_API_URL = "https://oebic1747111734.api-us1.com/api/3/import/bulk_import";
+    const AC_API_URL =
+      "https://oebic1747111734.api-us1.com/api/3/import/bulk_import";
 
     const response = await axios.post(
       AC_API_URL,
@@ -73,17 +73,22 @@ const addToActiveCampaign = async (req, res) => {
 
 const addToActiveCampaign2 = async (req, res) => {
   try {
-    const AC_API_KEY =
-      "24365954107d07deab71b287cba7becc06d034d56cb3eb93b9cd53e6a06e982148e978fdz";
+     const AC_API_KEY =
+      "d0fcf31b4bc0f1c0f52f1cbf188487a1565dbb1781c9cdaf70e66adeb875a74ad4ab8ae8";
     const AC_API_URL =
-      "https://dugreenetdulove.activehosted.com/api/3/contacts";
-    const contacts = await getWebinar();
+      "https://oebic1747111734.api-us1.com/api/3/contacts";
+    // const AC_API_KEY =
+    //   "24365954107d07deab71b287cba7becc06d034d56cb3eb93b9cd53e6a06e982148e978fdz";
+    // const AC_API_URL =
+    //   "https://dugreenetdulove.activehosted.com/api/3/contacts";
+    // const contacts = await getWebinar();
     // console.log(contacts[0]);
+    const { email, firstName, lastName } = req.body;
     const contact = {
-      email: contacts[2].email,
-      firstName: contacts[2].name,
+      email:email,
+      first_name:firstName,
+      last_name:lastName,
     };
-    // const { email, firstName, lastName } = req.body;
 
     const response = await axios.post(
       AC_API_URL,
@@ -101,6 +106,7 @@ const addToActiveCampaign2 = async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
+     console.log("ActiveCamp error:", error.response?.data || error.message);
     res.json(error.message);
   }
 };
