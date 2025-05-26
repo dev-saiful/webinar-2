@@ -2,9 +2,11 @@ import express from "express";
 import {
   addToActiveCampaign2,
   addToActiveCampaign3,
+  addToActiveCampaign4,
   createTag,
   getTags,
   getTags2,
+  getTags3,
 } from "./controller.js";
 
 const router = express.Router();
@@ -42,6 +44,7 @@ router.post("/add-active-camp2", addToActiveCampaign2);
  *         description: Send Data from webinarjam to ActiveCampagian
  */
 router.post("/add-active-camp3", addToActiveCampaign3);
+router.post("/add-active-camp4", addToActiveCampaign4);
 
 /**
  * @swagger
@@ -74,5 +77,14 @@ router.get("/get-tags", getTags);
  *         description: Tags Information
  */
 router.get("/get-tags2", getTags2);
-
+/**
+ * @swagger
+ * /get-tags3/:
+ *   get:
+ *     summary: Get All Tags
+ *     responses:
+ *       200:
+ *         description: Tags Information
+ */
+router.get("/get-tags3", getTags3);
 export default router;
