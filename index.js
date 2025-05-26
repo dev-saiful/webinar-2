@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import router from "./routes.js";
 import { swaggerUi, swaggerSpec } from "./swagger.js";
+import "./automation.js";
 
 const app = express();
 const PORT = 3000;

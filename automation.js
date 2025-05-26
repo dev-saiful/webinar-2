@@ -1,11 +1,11 @@
 // cronJob.js
 import { schedule } from "node-cron";
 import { DateTime } from "luxon";
-import { addToActiveCampaign2,addToActiveCampaign3 } from "./controller.js";
+import { addToActiveCampaign2, addToActiveCampaign3 } from "./controller.js";
 
 // Runs every day at 8:00 PM Bangladesh time (Asia/Dhaka)
 schedule(
-  "0 20 * * *",
+  "10 20 * * *",
   async () => {
     const bdTime = DateTime.now().setZone("Asia/Dhaka").toISO();
     console.log(`🕗 Cron triggered at BD time: ${bdTime}`);
