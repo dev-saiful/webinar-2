@@ -9,7 +9,7 @@ import {
 
 // Runs every day at 8:00 PM Bangladesh time (Asia/Dhaka)
 schedule(
-  "30 21 * * *",
+  "35 21 * * *",
   async () => {
     const bdTime = DateTime.now().setZone("Asia/Dhaka").toISO();
     console.log(`🕗 Cron triggered at BD time: ${bdTime}`);
