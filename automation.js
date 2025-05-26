@@ -9,16 +9,16 @@ import {
 
 // Runs every day at 8:00 PM Bangladesh time (Asia/Dhaka)
 schedule(
-  "35 21 * * *",
+  "45 21 * * *",
   async () => {
     const bdTime = DateTime.now().setZone("Asia/Dhaka").toISO();
     console.log(`🕗 Cron triggered at BD time: ${bdTime}`);
 
     try {
       await addToActiveCampaign3();
-      console.log("✅ Campaign 4 completed");
+      console.log("✅ Campaign 3 completed");
     } catch (error) {
-      console.error("❌ Campaign 4 failed:", error.message);
+      console.error("❌ Campaign 3 failed:", error.message);
     }
 
     try {

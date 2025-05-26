@@ -8,7 +8,7 @@ const addToActiveCampaign2 = async (req, res) => {
     const SYNC_API_URL =
       "https://oebic1747111734.api-us1.com/api/3/contact/sync";
     const TAG_API_URL = "https://oebic1747111734.api-us1.com/api/3/contactTags";
-    const TAG_ID = "5"; // ✅ Replace with your actual tag ID
+    const TAG_ID = "9"; // ✅ Replace with your actual tag ID
 
     const contacts = await getRegistrants();
     if (!contacts || !Array.isArray(contacts)) {
@@ -84,7 +84,7 @@ const addToActiveCampaign3 = async (req, res) => {
       "https://dugreenetdulove.activehosted.com/api/3/contact/sync";
     const TAG_API_URL =
       "https://dugreenetdulove.activehosted.com/api/3/contactTags";
-    const TAG_ID = "10"; // ✅ Replace with your actual tag ID
+    const TAG_ID = "3"; // ✅ Replace with your actual tag ID
 
     const contacts = await getRegistrants();
     if (!contacts || !Array.isArray(contacts)) {
